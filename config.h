@@ -1,0 +1,2 @@
+#define _XTAL_FREQ 4000000
+#define DS3232_PWR LATA6
