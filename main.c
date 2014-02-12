@@ -1,4 +1,5 @@
 #include <xc.h>
+#include <stdlib.h>
 #include "config.h"
 #include "peripherals.h"
 #include "serial.h"
@@ -70,13 +71,22 @@ void init(void){
 void main(void){
     init();
 
+    unsigned int i=0;
+    char numero[10];
+
     serial_out("Sindormir.net\n");
 
     while (1){
         RB1 = 1;
-        delay(1);
+        __delay_ms(100);
         RB1 = 0;
-        delay(1);
+        __delay_ms(100);
+        itoa(&numero, i++, 10);
+        serial_out("Ouch ");
+        serial_out(numero);
+        serial_out("\n");
+
+        //printf("Ouch: %d\n, i");
     }
 
 }
